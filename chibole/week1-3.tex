@@ -1,0 +1,190 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{newtxtext,newtxmath} % Times New Roman font for text and math
+\usepackage[a4paper, margin=1in]{geometry} % Adjust margins to resemble Word
+\usepackage{caption} % For adding a caption without the figure environment
+\usepackage{ragged2e} % For text justification
+\title{Antenna and Path Loss Calculations}
+\author{}
+\date{}
+\begin{document}
+	\setlength{\topskip}{0pt}
+	\setlength{\parskip}{0pt}
+	\maketitle
+	\vspace{-0.9in} % Adjust space between title and text
+	\begin{flushleft}
+		\fontsize{12}{15}\selectfont
+		
+		\textbf{Question 1}
+		
+		\begin{enumerate}
+			\item[(a)] Find the far-field distance for an antenna with a maximum dimension of 1 m and an operating frequency of 900 MHz.
+			
+			\item[(b)] If the transmitter produces 50 Watts of power, express the transmit power in units of:
+			\begin{enumerate}
+				\item[(i)] dBm
+				\item[(ii)] dBW
+			\end{enumerate}
+			
+			\item[(c)] If 50 Watts is applied to a unity gain antenna with a 900 MHz carrier frequency, find the received power in dBm at a free space distance of 100 m from the antenna. What is \(P_r(10 \, \text{Km})\)? Assume unity gain for the receiver antenna.
+		\end{enumerate}
+		
+		\vspace{0.5cm}
+		
+		\textbf{Solution}
+		\begin{enumerate}
+			\item[(a)] Find the far-field distance for an antenna with a maximum dimension of 1 m and an operating frequency of 900 MHz.
+			
+			The far-field distance (\(d_{\text{far}}\)) is given by:
+			\[
+			d_{\text{far}} = \frac{2D^2}{\lambda}
+			\]
+			Where:
+			\begin{itemize}
+				\item \(D = 1 \, \text{m}\) (maximum antenna dimension)
+				\item \(\lambda = \frac{c}{f} = \frac{3 \times 10^8 \, \text{m/s}}{900 \times 10^6 \, \text{Hz}} \approx 0.333 \, \text{m}\) (wavelength at 900 MHz)
+			\end{itemize}
+			
+			Thus, the far-field distance is:
+			\[
+			d_{\text{far}} = \frac{2 \times (1)^2}{0.333} \approx 6 \, \text{m}
+			\]
+			Therefore, the far-field distance is approximately \textbf{6 meters}.
+			
+			\item[(b)] If the transmitter produces 50 Watts of power, express the transmit power in units of:
+			
+			\begin{enumerate}
+				\item[(i)] dBm
+				
+				The formula to convert Watts to dBm is:
+				\[
+				P_{\text{dBm}} = 10 \log_{10}(P_{\text{W}} \times 1000)
+				\]
+				For \(P_{\text{W}} = 50 \, \text{Watts}\):
+				\[
+				P_{\text{dBm}} = 10 \log_{10}(50 \times 1000) \approx 47 \, \text{dBm}
+				\]
+				
+				\item[(ii)] dBW
+				
+				The formula to convert Watts to dBW is:
+				\[
+				P_{\text{dBW}} = 10 \log_{10}(P_{\text{W}})
+				\]
+				For \(P_{\text{W}} = 50 \, \text{Watts}\):
+				\[
+				P_{\text{dBW}} = 10 \log_{10}(50) \approx 17 \, \text{dBW}
+				\]
+			\end{enumerate}
+			
+			\item[(c)] If 50 Watts is applied to a unity gain antenna with a 900 MHz carrier frequency, find the received power in dBm at a free space distance of 100 m from the antenna. What is \(P_r(10 \, \text{Km})\)? Assume unity gain for the receiver antenna.
+			
+			The received power in free space is given by the Friis transmission equation:
+			\[
+			P_r(d) = P_t G_t G_r \left(\frac{\lambda}{4\pi d}\right)^2
+			\]
+			For a 900 MHz carrier frequency:
+			\begin{itemize}
+				\item \textbf{At \(d = 100 \, \text{m}\):}
+				
+				\[
+				P_r(100) = 50 \times 1 \times 1 \left(\frac{0.333}{4\pi \times 100}\right)^2
+				\]
+				\[
+				P_r(100) \approx 3.515 \times 10^{-6} \, \text{Watts}
+				\]
+				
+				Now convert the received power to dBm:
+				\[
+				P_r(100) \, \text{(dBm)} = 10 \log_{10}(3.515 \times 10^{-6} \times 1000) \approx -24.54 \, \text{dBm}
+				\]
+				
+				\item \textbf{At \(d = 10 \, \text{km}\):}
+				
+				\[
+				P_r(10,000) = 50 \times 1 \times 1 \left(\frac{0.333}{4\pi \times 10,000}\right)^2
+				\]
+				\[
+				P_r(10,000) \approx 3.515 \times 10^{-10} \, \text{Watts}
+				\]
+				
+				Now convert the received power to dBm:
+				\[
+				P_r(10,000) \, \text{(dBm)} = 10 \log_{10}(3.515 \times 10^{-10} \times 1000) \approx -64.54 \, \text{dBm}
+				\]
+			\end{itemize}
+			
+		\end{enumerate}
+		
+		\textbf{Summary:}
+		\begin{itemize}
+			\item The far-field distance is approximately \textbf{6 meters}.
+			\item The transmit power is approximately \textbf{47 dBm} and \textbf{17dBW}.
+			\item The received power at \(100 \, \text{m}\) is approximately \textbf{-24.54 dBm}.
+			\item The received power at \(10 \, \text{km}\) is approximately \textbf{-64.54 dBm}.
+		\end{itemize}
+		\newpage
+		
+		
+		\textbf{Question 2}
+		\begin{enumerate}
+			\item[(a)] Suppose the standard deviation of power due to shadowing is equal to 8 dB. What is the probability that the path loss will exceed the mean path loss by at least 5 dB?
+			
+			\item[(b)] What is the probability that the path loss will exceed the mean path loss by at least 10 dB?
+		\end{enumerate}
+		
+		\textbf{Solution}
+		
+	\end{flushleft}
+	
+	
+	In log-normal shadowing, the path loss variations (in dB) follow a normal distribution with:
+	
+	\begin{itemize}
+		\item Mean (\(\mu\)) = 0 dB (relative to mean path loss)
+		\item Standard deviation (\(\sigma\)) = 8 dB
+	\end{itemize}
+	
+	\vspace{0.5cm}
+	
+	\textbf{For exceeding mean path loss by at least 5 dB:}
+	
+	We need \(P(X \geq 5)\), where \(X\) is normally distributed.
+	
+	Using the standard normal distribution, we need:
+	
+	\[Z = \frac{X - \mu}{\sigma} = \frac{5 - 0}{8} = 0.625\]
+	
+	\[P(X \geq 5) = P(Z \geq 0.625)	\]
+	\[	P(Z \geq 0.625) = 1 - P(Z \leq 0.625)\]
+	
+	
+	From the standard normal table:	
+	\[	P(Z \leq 0.625) \approx 0.734\]
+	Therefore:	
+	\[	P(X \geq 5) = 1 - 0.734 = 0.266 \text{ or } 26.6\% \]
+	
+	\vspace{0.5cm}
+	
+	\textbf{For exceeding mean path loss by at least 10 dB:}
+	\[Z = \frac{10 - 0}{8} = 1.25\]
+	\[P(X \geq 10) = P(Z \geq 1.25)\]
+	
+	\[P(Z \geq 1.25) = 1 - P(Z \leq 1.25)	\]
+	From the standard normal table:
+	
+	\[P(Z \leq 1.25) \approx 0.894\]
+	Therefore:
+	\[P(X \geq 10) = 1 - 0.894 = 0.106 \text{ or } 10.6\%\]
+	\vspace{0.5cm}
+	
+	Thus, the probabilities are as follows:
+	
+	\begin{itemize}
+		\item The probability of exceeding mean path loss by at least 5 dB is 26.6\%.
+		\item The probability of exceeding mean path loss by at least 10 dB is 10.6\%.
+	\end{itemize}
+	
+\end{document}

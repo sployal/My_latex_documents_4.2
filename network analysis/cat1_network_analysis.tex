@@ -1,0 +1,388 @@
+
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{newtxtext,newtxmath} % Times New Roman font for text and math
+\usepackage[a4paper, margin=1in]{geometry} % Adjust margins to resemble Word
+\usepackage{caption} % For adding a caption without the figure environment
+\usepackage{ragged2e} % For text justification
+\usepackage{booktabs}
+
+\title{CAT 1: Transient Analysis of RL, RC, and RLC Circuits} % Correct the title
+\author{David Muigai} % Ensure the author name is correct
+
+
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Question 1}
+	\subsection*{(a) Writing the Differential Equation}
+	
+	Using Kirchhoff's Voltage Law (KVL):
+	\begin{equation}
+		V = iR + L \frac{di}{dt}
+	\end{equation}
+	\begin{equation}
+		24 = 10i + 2 \frac{di}{dt}
+	\end{equation}
+	
+	Rearranging to standard form:
+	\begin{equation}
+		2 \frac{di}{dt} + 10i = 24
+	\end{equation}
+	\begin{equation}
+		\frac{di}{dt} + 5i = 12
+	\end{equation}
+	
+	This is our governing first-order differential equation.
+	
+	\subsection*{(b) Finding the Current \( i(t) \) for \( t > 0 \)}
+	
+	The general solution form for this type of equation is:
+	\begin{equation}
+		i(t) = A(1 - e^{-t/\tau})
+	\end{equation}
+	where \( \tau = \frac{L}{R} \) is the time constant.
+	
+	At steady state (\( t = \infty \)):
+	\begin{equation}
+		i = \frac{V}{R} = \frac{24}{10} = 2.4A
+	\end{equation}
+	Therefore, \( A = 2.4 \).
+	
+	The complete solution is:
+	\begin{equation}
+		i(t) = 2.4(1 - e^{-5t}) \quad \text{amperes, for } t > 0
+	\end{equation}
+	
+	\subsection*{(c) Calculations}
+	
+	Time constant:
+	\begin{equation}
+		\tau = \frac{L}{R} = \frac{2}{10} = 0.2 \text{ seconds}
+	\end{equation}
+	
+	To find \( i(0.5s) \):
+	\begin{equation}
+		i(0.5) = 2.4(1 - e^{-5(0.5)})
+	\end{equation}
+	\begin{equation}
+		i(0.5) = 2.4(1 - e^{-2.5})
+	\end{equation}
+	\begin{equation}
+		i(0.5) = 2.4(1 - 0.082)
+	\end{equation}
+	\begin{equation}
+		i(0.5) = 2.4(0.918)
+	\end{equation}
+	\begin{equation}
+		i(0.5) = 2.20A
+	\end{equation}
+	
+
+	
+	
+	
+	
+	
+	\section*{Question 2}
+	\subsection*{(a) Deriving the Equation for Capacitor Charging}
+	
+	Using Kirchhoff's Voltage Law (KVL):
+	\begin{equation}
+		V = iR + v_c
+	\end{equation}
+	where \( V = 20V \) (DC supply).
+	
+	The current through the capacitor is:
+	\begin{equation}
+		i = C \frac{dv_c}{dt}
+	\end{equation}
+	
+	Substituting this into KVL:
+	\begin{equation}
+		20 = RC \frac{dv_c}{dt} + v_c
+	\end{equation}
+	
+	Rearranging to standard form:
+	\begin{equation}
+		RC \frac{dv_c}{dt} + v_c = 20
+	\end{equation}
+	
+	Substituting given values:
+	\begin{equation}
+		(1000)(100 \times 10^{-6}) \frac{dv_c}{dt} + v_c = 20
+	\end{equation}
+	\begin{equation}
+		0.1 \frac{dv_c}{dt} + v_c = 20
+	\end{equation}
+	
+	\subsection*{(b) Solving for \( v_c(t) \)}
+	
+	This is a first-order differential equation with the general solution:
+	\begin{equation}
+		v_c(t) = A(1 - e^{-t/\tau})
+	\end{equation}
+	where \( \tau = RC \) is the time constant.
+	
+	At \( t = \infty \), \( v_c = 20V \) (capacitor fully charged), so \( A = 20 \).
+	
+	Thus, the complete solution is:
+	\begin{equation}
+		v_c(t) = 20(1 - e^{-t/0.1}) \quad \text{volts, for } t > 0
+	\end{equation}
+	
+	\subsection*{(c) Calculations}
+	
+	Time constant:
+	\begin{equation}
+		\tau = RC = (1000)(100 \times 10^{-6}) = 0.1 \text{ seconds} = 100 \text{ ms}
+	\end{equation}
+	
+	To find \( v_c(10ms) \):
+	\begin{equation}
+		v_c(10ms) = 20(1 - e^{-0.01/0.1})
+	\end{equation}
+	\begin{equation}
+		v_c(10ms) = 20(1 - e^{-0.1})
+	\end{equation}
+	\begin{equation}
+		v_c(10ms) = 20(1 - 0.905)
+	\end{equation}
+	\begin{equation}
+		v_c(10ms) = 20(0.095)
+	\end{equation}
+	\begin{equation}
+		v_c(10ms) = 1.9V
+	\end{equation}
+	
+	
+	
+	
+	
+
+		\section*{Question 3}
+		
+		\subsection*{(a) Deriving the Equation for Current Decay}
+		
+		After disconnection, using KVL:
+		\begin{equation}
+			0 = iR + L\frac{di}{dt}
+		\end{equation}
+		where \( i \) = current, \( R = 15\Omega \), \( L = 3H \).
+		
+		Rearranging:
+		\begin{equation}
+			L\frac{di}{dt} = -iR
+		\end{equation}
+		\begin{equation}
+			3\frac{di}{dt} = -15i
+		\end{equation}
+		\begin{equation}
+			\frac{di}{dt} = -5i
+		\end{equation}
+		
+		This is our governing differential equation for current decay.
+		
+		\subsection*{(b) Finding \( i(t) \) after Disconnection}
+		
+		For a decaying current, the solution form is:
+		\begin{equation}
+			i(t) = A e^{-t/\tau}
+		\end{equation}
+		where \( \tau = \frac{L}{R} = \frac{3}{15} = 0.2 \) seconds.
+		
+		At \( t = 0 \), \( i = 5A \) (initial current).
+		
+		Therefore,
+		\begin{equation}
+			5 = A
+		\end{equation}
+		
+		The complete solution is:
+		\begin{equation}
+			i(t) = 5e^{-5t} \text{ amperes}
+		\end{equation}
+		
+		\subsection*{(c) Calculating Current at \( t = 1s \)}
+		
+		\begin{equation}
+			i(1) = 5e^{-5(1)}
+		\end{equation}
+		\begin{equation}
+			i(1) = 5e^{-5}
+		\end{equation}
+		\begin{equation}
+			i(1) = 5(0.0067)
+		\end{equation}
+		\begin{equation}
+			i(1) = 0.0335A \approx 33.5mA
+		\end{equation}
+		
+	
+	
+	
+	
+	
+	
+	\section*{Question 4. Solving the RLC Circuit Problem Step by Step}
+	
+	\subsection*{(a) Writing the Second-Order Differential Equation}
+	For a series RLC circuit with a DC voltage source $V$, using Kirchhoff's Voltage Law:
+	\begin{equation}
+		V = L \frac{di}{dt} + Ri + \frac{1}{C} \int i \, dt
+	\end{equation}
+	Taking the derivative of both sides to eliminate the integral:
+	\begin{equation}
+		0 = L \frac{d^2 i}{dt^2} + R \frac{di}{dt} + \frac{1}{C} i
+	\end{equation}
+	
+	Therefore, the governing differential equation is:
+	\begin{equation}
+		L \frac{d^2 i}{dt^2} + R \frac{di}{dt} + \frac{1}{C} i = 0
+	\end{equation}
+	
+	Substituting the given values:
+	\begin{equation}
+		(1) \frac{d^2 i}{dt^2} + (50) \frac{di}{dt} + \left( \frac{1}{100 \times 10^{-6}} \right) i = 0
+	\end{equation}
+	\begin{equation}
+		\frac{d^2 i}{dt^2} + 50 \frac{di}{dt} + 10^4 i = 0
+	\end{equation}
+	
+	\subsection*{(b) Identifying the Damping Type}
+	Calculate the damping coefficient ($\alpha$) and natural frequency ($\omega_0$):
+	\begin{equation}
+		\alpha = \frac{R}{2L} = \frac{50}{2 \times 1} = 25
+	\end{equation}
+	\begin{equation}
+		\omega_0 = \sqrt{\frac{1}{LC}} = \sqrt{\frac{1}{1 \times 100 \times 10^{-6}}} = 100
+	\end{equation}
+	
+	Calculate the discriminant ($\alpha - \omega_0$):
+	\begin{equation}
+		25 - 100= -75
+	\end{equation}
+	
+	Since $\alpha < \omega_0$, this is an underdamped system.
+	The general solution form is:
+	\begin{equation}
+		i(t) = e^{-\alpha t} \left[A \cos(\omega_d t) + B \sin(\omega_d t)\right]
+	\end{equation}
+	where:
+	\begin{equation}
+		\omega_d = \sqrt{\omega_0^2 - \alpha^2} = \sqrt{9375} \approx 96.8 \text{ rad/s}
+	\end{equation}
+	\begin{equation}
+		i(t) = A e^{-25t} \left[ \cos(96.8t) + B \sin(96.8t) \right]
+	\end{equation}
+	
+	\subsection*{(c) Natural Frequencies and Behavior}
+	Damped natural frequency:
+	\begin{equation}
+		\omega_d \approx 96.8 \text{ rad/s}
+	\end{equation}
+	Undamped natural frequency:
+	\begin{equation}
+		\omega_0 = 100 \text{ rad/s}
+	\end{equation}
+	
+	The circuit behavior over time:
+	\begin{itemize}
+		\item The current will oscillate with frequency $\omega_d \approx 96.8$ rad/s.
+		\item The amplitude will decay exponentially with time constant $\tau = \frac{1}{\alpha} = \frac{1}{25} = 0.04$ seconds.
+		\item Since it's underdamped, the current will oscillate around zero while gradually decreasing in amplitude.
+		\item The system will eventually settle to zero current ($t \to \infty$) since there's only a DC source and the circuit is initially unenergized.
+		\item The response will effectively reach steady state after approximately $5\tau = 0.2$ seconds.
+	\end{itemize}
+	
+	
+	
+	
+	
+	\section*{ Question 5. Deriving the Characteristic Equation}
+	
+	\subsection*{(a) Writing the Second-Order Differential Equation}
+	For a series RLC circuit with a step voltage input $V(t)$, using Kirchhoff's Voltage Law:
+	\begin{equation}
+		V(t) = L \frac{di}{dt} + Ri + \frac{1}{C} \int i \, dt
+	\end{equation}
+	Taking the derivative to eliminate the integral:
+	\begin{equation}
+		0 = L \frac{d^2 i}{dt^2} + R \frac{di}{dt} + \frac{1}{C} i
+	\end{equation}
+	
+	Substituting the given values:
+	\begin{equation}
+		0.5 \frac{d^2 i}{dt^2} + 5 \frac{di}{dt} + \left( \frac{1}{50 \times 10^{-6}} \right) i = 0
+	\end{equation}
+	Simplifying:
+	\begin{equation}
+		\frac{d^2 i}{dt^2} + 10 \frac{di}{dt} + 40000 i = 0
+	\end{equation}
+	
+	The characteristic equation is:
+	\begin{equation}
+		s^2 + 10s + 40000 = 0
+	\end{equation}
+	
+	\subsection*{(b) Testing for Underdamped Condition and Finding Damped Frequency}
+	Calculate the damping coefficient ($\alpha$) and natural frequency ($\omega_0$):
+	\begin{equation}
+		\alpha = \frac{R}{2L} = \frac{5}{2 \times 0.5} = 5
+	\end{equation}
+	\begin{equation}
+		\omega_0 = \sqrt{\frac{1}{LC}} = \sqrt{\frac{1}{0.5 \times 50 \times 10^{-6}}} = 200 \text{ rad/s}
+	\end{equation}
+	
+	For the underdamped condition: $\alpha < \omega_0$
+
+	\begin{equation}
+		5 < 200, \quad \text{therefore the system is underdamped}
+	\end{equation}
+	
+	Damped frequency:
+	\begin{equation}
+		\omega_d = \sqrt{\omega_0^2 - \alpha^2}
+	\end{equation}
+	\begin{equation}
+		\omega_d = \sqrt{40000 - 25}
+	\end{equation}
+	\begin{equation}
+		\omega_d = \sqrt{39975} \approx 199.94 \text{ rad/s}
+	\end{equation}
+	
+	\subsection*{(c) Time for Oscillations to Decay to 10\%}
+	For an underdamped system, the envelope of decay is $e^{-\alpha t}$.
+	We want to find $t$ when amplitude reaches 10\% of initial:
+	\begin{equation}
+		0.1 = e^{-5t}
+	\end{equation}
+	Taking the natural logarithm:
+	\begin{equation}
+		\ln(0.1) = -5t
+	\end{equation}
+	\begin{equation}
+		t = \frac{-\ln(0.1)}{5}
+	\end{equation}
+	\begin{equation}
+		t \approx 0.46 \text{ seconds}
+	\end{equation}
+	
+	Therefore, it takes approximately 0.46 seconds for the oscillations to decay to 10\% of their initial amplitude.
+	
+	The complete solution can be written as:
+	\begin{equation}
+		i(t) = A e^{-5t} \left[ \cos(199.94t) + B \sin(199.94t) \right]
+	\end{equation}
+	where $A$ and $B$ are constants determined by initial conditions.
+	
+	
+	
+	
+	
+	
+	
+\end{document}

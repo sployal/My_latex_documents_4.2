@@ -1,0 +1,577 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{newtxtext,newtxmath} % Times New Roman font
+\usepackage[a4paper, margin=1in]{geometry} % Standard margins
+\usepackage{ragged2e} % For text justification
+\usepackage{titlesec} % For title formatting
+\usepackage{setspace} % Line spacing
+\usepackage{array} % Table alignment
+\usepackage{graphicx}
+
+
+
+
+\begin{document}
+	
+		
+	\begin{center}
+		\textbf{CHUKA} \hspace{2cm}
+		\includegraphics[width=0.3\textwidth]{images/picture1} % Replace "logo.png" with your university logo file
+		\hspace{2cm} \textbf{UNIVERSITY} \\
+		\vspace{0.3cm}
+		\textbf{UNIVERSITY EXAMINATIONS} \\
+		\vspace{0.3cm}
+		\textbf{EXAMINATION FOR THE AWARD OF DEGREE OF BACHELOR OF SCIENCE IN} \\
+		\textbf{ELECTRICAL AND ELECTRONICS ENGINEERING} \\
+		\vspace{0.3cm}
+		\textbf{EENG 475: CONTROL ENGINEERING 1} \\
+		\vspace{0.3cm}
+		\textbf{STREAMS: \hspace{5cm} TIME: 2 HOURS} \\
+		\vspace{0.3cm}
+		\textbf{DAY/DATE: TUESDAY 15/04/2025 \hspace{2cm} 8.30 A.M – 10.30 A.M} \\
+		\rule{\textwidth}{0.4pt} % horizontal line
+	\end{center}
+	
+	\vspace{0.5cm}
+	
+	\noindent \textbf{INSTRUCTIONS} \\
+	Answer question ONE and any other TWO questions.\\
+	Do not write on the question paper.
+	
+	\vspace{0.5cm}
+	
+	\noindent \textbf{QUESTION ONE (30 MARKS)}
+	\begin{enumerate}
+		\item[(a)] Define the following terms: 
+		\begin{itemize}
+			\item \textbf{State Variables:} State variables are a set of variables that describe the smallest possible subset of system variables such that the knowledge of these variables at any time \( t_0 \), together with the input for \( t \geq t_0 \), completely determines the behavior of the system for all future times \( t \geq t_0 \).
+			
+			\item \textbf{State Vector:} A state vector is a column vector that contains all the state variables of a system. It represents the complete state of the system at a given time and is typically denoted as \( \mathbf{x}(t) \).
+			
+			\item \textbf{State Space:} State space is a mathematical model of a physical system expressed as a set of input, output, and state variables related by first-order differential (or difference) equations. It provides a framework to model and analyze systems using a set of equations in matrix form.
+		\end{itemize}
+		
+		\hfill [3 marks]
+		
+		
+		
+		
+		
+		
+		\item[(b)] What are the key advantages of state-space representation over classical control techniques? List and briefly explain three advantages. \hfill [3 marks]
+		
+		\item[(c)] Define the following terms in the context of digital control systems:
+		\begin{itemize}
+			\item Sampling
+			\item Zero-order hold
+			\item Quantization
+		\end{itemize}
+		\hfill [2 marks]
+		
+		\item[(d)] What are eigenvalues and eigenvectors, and how are they used in state-space analysis? \hfill [3 marks]
+		
+		\item[(e)] Define controllability and observability. Provide the criteria for testing them. \hfill [3 marks]
+		
+		\item[(f)] Describe the difference between continuous-time and discrete-time systems in control. \hfill [2 marks]
+	\end{enumerate}
+	
+	
+	
+	\section*{Question Two \hfill (20 Marks)}
+	
+	\begin{enumerate}
+		\item[(a)] \subsubsection*{Test the controllability and observability of the system below:  [4 marks]} 
+		\[
+		A = \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix}, \quad
+		B = \begin{bmatrix} 2 \\ 0 \end{bmatrix}, \quad
+		C = \begin{bmatrix} 1 & 1 \end{bmatrix}
+		\]
+		
+		\textbf{Solution:} \\
+		The controllability matrix is:
+		\[
+		\mathcal{C} = [B \quad AB] = \begin{bmatrix} 2 & 2 \\ 0 & 0 \end{bmatrix}
+		\]
+		Since \(\text{rank}(\mathcal{C}) = 1 < 2\), the system is \textbf{not controllable}. \\
+		
+		The observability matrix is:
+		\[
+		\mathcal{O} = \begin{bmatrix} C \\ CA \end{bmatrix} = \begin{bmatrix} 1 & 1 \\ 1 & 2 \end{bmatrix}
+		\]
+		\[
+		\det(\mathcal{O}) = (1)(2) - (1)(1) = 1 \neq 0
+		\]
+		Therefore, the system is \textbf{observable}.
+		
+		\item[(b)] \textbf{For the state-space system:}
+		\[
+		\dot{x} = \begin{bmatrix} 2 & 1 \\ 0 & -3 \end{bmatrix}x + \begin{bmatrix} 1 \\ 2 \end{bmatrix}u
+		\quad , \quad
+		y = \begin{bmatrix} 4 & 5 \end{bmatrix}x
+		\]
+		
+		\begin{enumerate}
+			\item[(i)] \textbf{Calculate the state transition matrix \( \Phi(t) \).} \hfill [4 marks]
+			
+			\textbf{Solution:} \\
+			
+			
+			
+			\subsection*{(i) State Transition Matrix \(\Phi(t)\)}
+			
+			The state transition matrix is:
+			
+			\[
+			\Phi(t) = e^{At}
+			\quad \text{where} \quad A = 
+			\begin{bmatrix}
+				2 & 1 \\ 
+				0 & -3
+			\end{bmatrix}
+			\]
+			
+			Since \(A\) is upper triangular, the eigenvalues are \(2\) and \(-3\).
+			
+			Thus:
+			
+			\[
+			\Phi(t) = 
+			\begin{bmatrix}
+				e^{2t} & f(t) \\ 
+				0 & e^{-3t}
+			\end{bmatrix}
+			\]
+			
+			where \(f(t)\) satisfies:
+			
+			\[
+			\frac{d}{dt} f(t) = 1 \times e^{-3t} + 2f(t)
+			\]
+			
+			Using integrating factor \(e^{-2t}\):
+			
+			\[
+			\frac{d}{dt}\left( e^{-2t} f(t) \right) = e^{-5t}
+			\]
+			
+			Integrating:
+			
+			\[
+			e^{-2t} f(t) = \frac{e^{-5t}}{-5} + C
+			\]
+			\[
+			f(t) = e^{2t} \left( \frac{1}{5}(1 - e^{-5t}) \right)
+			\]
+			
+			Thus:
+			
+			\[
+			\boxed{
+				\Phi(t) = 
+				\begin{bmatrix}
+					e^{2t} & \frac{1}{5}e^{2t}(1 - e^{-5t}) \\ 
+					0 & e^{-3t}
+				\end{bmatrix}
+			}
+			\]
+			
+			
+			\item[(ii)] \textbf{Find the zero-input response for the initial condition \( x(0) = \begin{bmatrix} 1 \\ -1 \end{bmatrix}^T \).} \hfill [3 marks]
+			
+			\textbf{Solution:} \\
+			The zero-input response is:
+			\[
+			x(t) = \Phi(t) x(0) = 
+			\begin{bmatrix}
+				\frac{4}{5}e^{2t} + \frac{1}{5}e^{-3t} \\
+				-e^{-3t}
+			\end{bmatrix}
+			\]
+		\end{enumerate}
+		
+		\item[(c)] \textbf{For the continuous-time system:}
+		\[
+		\dot{x} = \begin{bmatrix} 0 & 1 \\ -2 & -3 \end{bmatrix}x + \begin{bmatrix} 0 \\ 1 \end{bmatrix}u
+		\quad , \quad
+		y = \begin{bmatrix} 1 & 0 \end{bmatrix}x
+		\]
+		
+		\textbf{Design a state feedback controller \( u = -Kx \) to place the eigenvalues at \( s = -1 \) and \( s = -2 \).} \hfill [7 marks]
+		
+		\item[(d)] \textbf{Explain the concepts of reliability and redundancy in digital control systems.} \hfill [2 marks]
+	\end{enumerate}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\section*{Question b}
+	
+	For the state-space system:
+	\[
+	\dot{x} = 
+	\begin{bmatrix}
+		2 & 1 \\ 
+		0 & -3
+	\end{bmatrix} x + 
+	\begin{bmatrix}
+		1 \\ 
+		2
+	\end{bmatrix} u,
+	\quad
+	y = 
+	\begin{bmatrix}
+		4 & 5
+	\end{bmatrix} x
+	\]
+	\begin{enumerate}
+		\item[(i)] Calculate the state transition matrix \(\Phi(t)\).
+		\item[(ii)] Find the zero-input response for the initial condition \(x(0) = \begin{bmatrix} 1 \\ -1 \end{bmatrix}\).
+	\end{enumerate}
+	
+	\section*{solution}
+	
+	\subsection*{(i) State Transition Matrix \(\Phi(t)\)}
+	
+	The state transition matrix is:
+	
+	\[
+	\Phi(t) = e^{At}
+	\quad \text{where} \quad A = 
+	\begin{bmatrix}
+		2 & 1 \\ 
+		0 & -3
+	\end{bmatrix}
+	\]
+	
+	Since \(A\) is upper triangular, the eigenvalues are \(2\) and \(-3\).
+	
+	Thus:
+	
+	\[
+	\Phi(t) = 
+	\begin{bmatrix}
+		e^{2t} & f(t) \\ 
+		0 & e^{-3t}
+	\end{bmatrix}
+	\]
+	
+	where \(f(t)\) satisfies:
+	
+	\[
+	\frac{d}{dt} f(t) = 1 \times e^{-3t} + 2f(t)
+	\]
+	
+	Using integrating factor \(e^{-2t}\):
+	
+	\[
+	\frac{d}{dt}\left( e^{-2t} f(t) \right) = e^{-5t}
+	\]
+	
+	Integrating:
+	
+	\[
+	e^{-2t} f(t) = \frac{e^{-5t}}{-5} + C
+	\]
+	\[
+	f(t) = e^{2t} \left( \frac{1}{5}(1 - e^{-5t}) \right)
+	\]
+	
+	Thus:
+	
+	\[
+	\boxed{
+		\Phi(t) = 
+		\begin{bmatrix}
+			e^{2t} & \frac{1}{5}e^{2t}(1 - e^{-5t}) \\ 
+			0 & e^{-3t}
+		\end{bmatrix}
+	}
+	\]
+	
+	\subsection*{(ii) Zero-input Response}
+	
+	The zero-input response is:
+	
+	\[
+	x(t) = \Phi(t) x(0)
+	\]
+	
+	Substituting:
+	
+	\[
+	x(t) = 
+	\begin{bmatrix}
+		e^{2t} & \frac{1}{5}e^{2t}(1 - e^{-5t}) \\ 
+		0 & e^{-3t}
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 \\ -1
+	\end{bmatrix}
+	\]
+	
+	First component:
+	
+	\[
+	e^{2t}(1) + \frac{1}{5}e^{2t}(1 - e^{-5t})(-1) = e^{2t} \left( \frac{4}{5} + \frac{1}{5}e^{-5t} \right)
+	\]
+	
+	Second component:
+	
+	\[
+	0(1) + e^{-3t}(-1) = -e^{-3t}
+	\]
+	
+	Thus:
+	
+	\[
+	\boxed{
+		x(t) = 
+		\begin{bmatrix}
+			e^{2t} \left( \frac{4}{5} + \frac{1}{5}e^{-5t} \right) \\
+			-e^{-3t}
+		\end{bmatrix}
+	}
+	\]
+	
+	\newpage
+	
+	\section*{Question c}
+	
+	For the continuous-time system:
+	
+	\[
+	\dot{x} = 
+	\begin{bmatrix}
+		0 & 1 \\ 
+		-2 & -3
+	\end{bmatrix} x +
+	\begin{bmatrix}
+		0 \\ 
+		1
+	\end{bmatrix} u,
+	\quad
+	y = 
+	\begin{bmatrix}
+		1 & 0
+	\end{bmatrix} x
+	\]
+	
+	Design a state feedback controller \(u = -Kx\) to place the eigenvalues at \(s = -1\) and \(s = -2\).
+	
+	\section*{solution}
+	
+	The closed-loop system is:
+	
+	\[
+	\dot{x} = (A - BK)x
+	\]
+	
+	where:
+	
+	\[
+	B = 
+	\begin{bmatrix}
+		0 \\ 1
+	\end{bmatrix},
+	\quad
+	K = 
+	\begin{bmatrix}
+		k_1 & k_2
+	\end{bmatrix}
+	\]
+	
+	Thus:
+	
+	\[
+	A - BK =
+	\begin{bmatrix}
+		0 & 1 \\
+		-2 - k_1 & -3 - k_2
+	\end{bmatrix}
+	\]
+	
+	The characteristic equation:
+	
+	\[
+	\det(sI - (A - BK)) = 0
+	\]
+	
+	Expanding:
+	
+	\[
+	\det\left(
+	\begin{bmatrix}
+		s & -1 \\ 
+		2+k_1 & s+3+k_2
+	\end{bmatrix}
+	\right) = 0
+	\]
+	
+	Thus:
+	
+	\[
+	s^2 + (3+k_2)s + (2+k_1) = 0
+	\]
+	
+	The desired characteristic equation is:
+	
+	\[
+	(s+1)(s+2) = s^2 + 3s + 2
+	\]
+	
+	Comparing:
+	
+	\[
+	3 + k_2 = 3 \quad \Rightarrow \quad k_2 = 0
+	\]
+	\[
+	2 + k_1 = 2 \quad \Rightarrow \quad k_1 = 0
+	\]
+	
+	Thus:
+	
+	\[
+	\boxed{K = \begin{bmatrix} 0 & 0 \end{bmatrix}}
+	\]
+	
+	
+	
+	
+	
+	
+	\section*{Question Three \hfill (20 Marks)}
+	
+	\begin{enumerate}
+		\item[(a)] Convert the continuous transfer function 
+		\[
+		G(s) = \frac{1}{s+2}
+		\]
+		to z-domain using \( T = 0.1 \, \text{seconds} \). \hfill [3 marks]
+		
+		\item[(b)] Convert the following transfer function to state-space representation in controllable canonical form:
+		\[
+		G(s) = \frac{5s + 3}{s^2 + 4s - 0.5}
+		\]
+		\hfill [3 marks]
+		
+		\item[(c)] Consider a continuous-time system:
+		\[
+		\dot{x} = 
+		\begin{bmatrix}
+			0 & 1 \\
+			-2 & -3
+		\end{bmatrix}x +
+		\begin{bmatrix}
+			0 \\ 1
+		\end{bmatrix}u
+		\quad , \quad
+		y = 
+		\begin{bmatrix}
+			1 & 0
+		\end{bmatrix}x
+		\]
+		
+		\begin{enumerate}
+			\item[(i)] Convert this system to a discrete-time system with a sampling period of \( T = 0.1 \, \text{seconds} \). \hfill [4 marks]
+			
+			\item[(ii)] Determine whether the discrete-time system is stable. \hfill [1 mark]
+		\end{enumerate}
+		
+		\item[(d)] Consider the discrete-time system:
+		\[
+		x(k+1) = 
+		\begin{bmatrix}
+			0.5 & 0 \\
+			0 & 0.8
+		\end{bmatrix}x(k) +
+		\begin{bmatrix}
+			1 \\ 1
+		\end{bmatrix}u(k)
+		\quad , \quad
+		y(k) = 
+		\begin{bmatrix}
+			1 & 1
+		\end{bmatrix}x(k)
+		\]
+		
+		\begin{enumerate}
+			\item[(i)] Design a state feedback controller \( u(k) = -Kx(k) \) to place the eigenvalues of the closed-loop system at \( z = 0.3 \) and \( z = 0.4 \). \hfill [6 marks]
+			
+			\item[(ii)] Verify that the designed controller achieves the desired eigenvalue placement. \hfill [3 marks]
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	
+	
+	\section*{Question Four \hfill (20 Marks)}
+	
+	\begin{enumerate}
+		\item[(a)] Consider a temperature control system for an industrial furnace. The continuous-time plant model is:
+		\[
+		G(s) = \frac{2}{5s+1}
+		\]
+		You need to implement a digital controller with a sampling time of \( T = 0.5 \) seconds.
+		
+		\begin{enumerate}
+			\item[(i)] Find the discrete-time plant model \( G(z) \). \hfill [4 marks]
+			
+			\item[(ii)] Design a digital PID controller in the form:
+			\[
+			C(z) = K_p + K_i\left( \frac{Tz}{z-1} \right) + \frac{K_d(z-1)}{Tz}
+			\]
+			with parameters \( K_p = 1.2 \), \( K_i = 0.5 \), and \( K_d = 0.1 \). \hfill [4 marks]
+			
+			\item[(iii)] Write the difference equation for the controller implementation. \hfill [3 marks]
+		\end{enumerate}
+		
+		\item[(b)] A discrete-time control system has the following state-space representation:
+		
+		\[
+		x(k+1) = 
+		\begin{bmatrix}
+			0.8 & 0.1 \\
+			0 & 0.9
+		\end{bmatrix}x(k) +
+		\begin{bmatrix}
+			0 \\ 1
+		\end{bmatrix}u(k)
+		\quad , \quad
+		y(k) = 
+		\begin{bmatrix}
+			1 & 0
+		\end{bmatrix}x(k)
+		\]
+		
+		\begin{enumerate}
+			\item[(i)] Design a full-order observer to estimate the states with observer poles at \( z = 0.2 \) and \( z = 0.3 \). \hfill [4 marks]
+			
+			\item[(ii)] Write the observer equations. \hfill [3 marks]
+			
+			\item[(iii)] Discuss the trade-off in selecting observer pole locations. \hfill [2 marks]
+		\end{enumerate}
+	\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+

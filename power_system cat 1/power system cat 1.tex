@@ -1,0 +1,327 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{newtxtext,newtxmath} % Times New Roman font
+\usepackage[a4paper, margin=1in]{geometry} % Standard margins
+\usepackage{ragged2e} % For text justification
+\usepackage{titlesec} % For title formatting
+\usepackage{setspace} % Line spacing
+\usepackage{array} % Table alignment
+
+
+\begin{document}
+	
+	% University Logo
+	\begin{center}
+		\includegraphics[width=6cm]{images/picture1} % Replace with the actual logo filename
+	\end{center}
+	
+	% Institution and Department
+	\begin{center}
+		\textbf{\large CHUKA UNIVERSITY} \\[1.5cm]
+		\textbf{FACULTY OF ENGINEERING AND TECHNOLOGY} \\[0.3cm]
+		\textbf{DEPARTMENT OF ELECTRICAL AND ELECTRONIC ENGINEERING} \\[2cm]
+	\end{center}
+	
+	% Assignment Title
+	\begin{center}
+		\textbf{\large EENG 465 Power Systems II} \\[0.3cm]
+		\textbf {\large \textcolor{teal}{CAT 1 }} \\[1cm] 
+	\end{center}
+	
+	% Group Members Section
+	\noindent
+	\textbf{\fontsize{14}{16} \selectfont Group Members} \\[0.4cm] % You can adjust the size
+	
+	\begin{tabular}{l@{\hspace{3cm}}l} 
+		\fontsize{15}{15} \selectfont Johnson Kiama  & \fontsize{13}{15} \selectfont EB24/56163/21  \\[0.2cm]
+		\fontsize{15}{15} \selectfont Mary Wangari   & \fontsize{13}{15} \selectfont EB24/56151/21  \\[0.2cm]
+		\fontsize{15}{15} \selectfont David Muigai   & \fontsize{13}{15} \selectfont EB24/56171/21  \\[0.2cm]
+		\fontsize{15}{15} \selectfont Johnson Munyasia & \fontsize{13}{15} \selectfont EB24/56157/21  \\[0.2cm]
+		\fontsize{15}{15} \selectfont Elijah Karanja & \fontsize{13}{15} \selectfont EB24/56201/21  \\[0.2cm]
+	\end{tabular}
+	
+	
+	
+	\newpage 
+	
+	
+	\section*{Question 1}
+	
+	
+	
+	A 275 kV overhead transmission line has the following characteristics:  
+	\( Z = 12.5 + j66 \, \Omega \), \( Y = j4.4 \times 10^{-4} \, S \) 
+	The line delivers 250 MW at a lagging power factor of 0.9. Determine:
+	
+	\begin{enumerate}
+		\item[\textbf{(i)}] ABCD constants
+		\item[\textbf{(ii)}] Surge impedance of the line
+		\item[\textbf{(iii)}] Sending-end voltage
+		\item[\textbf{(iv)}] Sending-end current
+		\item[\textbf{(v)}] Line charging current
+		\item[\textbf{(vi)}] Transmission efficiency
+		\item[\textbf{(vii)}] Voltage regulation
+	\end{enumerate}
+	
+	
+	\subsection*{Solution} 
+	
+	\textbf{Given:}  
+	\[
+	Z = 12.5 + j66, \quad Y = 4.4 \times 10^{-4} \angle 90^\circ
+	\]
+	\[
+	P = 250 \text{MW}, \quad V_R = 275 \text{kV}, \quad \cos\phi_R = 0.9
+	\]
+	\[
+	\phi_R = \cos^{-1} 0.9 = 25.842^\circ
+	\]
+	
+	
+     \textbf{The receiving end active power is given by ,}
+	\begin{equation}
+		P = \sqrt{3} V_R I_R \cos\phi_R
+	\end{equation}
+	
+	\begin{equation}
+		I_R = \frac{250 \times 10^6}{\sqrt{3} \times 275 \times 10^3 \times 0.9} = 583.18 A
+	\end{equation}
+	
+	\[
+	I_R = 583.18 \angle -25.842^\circ A
+	\]
+	
+	\renewcommand{\labelenumi}{(\textbf{\roman{enumi}})}
+	\begin{enumerate}
+	\item \textbf{Calculating ABCD constant for long transmission line,} 
+	
+	\begin{equation}
+		A = D = \cosh \gamma = \frac{1}{2} \left[ e^{\alpha + j\beta} + e^{-(\alpha + j\beta)} \right]
+	\end{equation}
+	
+	\[ A = D = \frac{1}{2} \left[ e^{\alpha} \angle \beta + e^{-\alpha} \angle -\beta \right] \]
+	
+	\begin{equation}
+		\gamma = \sqrt{ZY}
+	\end{equation}
+	
+	\[ \gamma = \sqrt{(12.5 + j66) \times (4.4 \times 10^{-4} \angle 90^\circ)} \]
+	
+	\[ \gamma = \sqrt{0.0295 \angle 169.27^\circ} \]
+	
+	\begin{equation}
+		\gamma = 0.172 \angle 84.635^\circ = 0.0160 + j0.171
+	\end{equation}
+	
+	
+	
+	
+	\textbf{comparing with $\alpha + j\beta$, we get the following}
+	
+	\[ \alpha = 0.0160 \text{ rad}, \quad \beta = \frac{0.171 \times 180}{\pi} = 9.797^\circ \]
+	
+	\begin{equation}
+		A = D = \frac{1}{2} \left[ e^{0.016} \angle 9.797^\circ + e^{-0.016} \angle -9.797^\circ \right]
+	\end{equation}
+	
+	\begin{equation}
+		A = D = 0.9855 \angle 0.1582^\circ
+	\end{equation}
+	
+	\begin{equation}
+		\sinh \gamma = \frac{1}{2} \left[ e^{\alpha} \angle \beta - e^{-\alpha} \angle -\beta \right]
+	\end{equation}
+	
+	\[ = \frac{1}{2} \left[ e^{0.016} \angle 9.797^\circ - e^{-0.016} \angle -9.797^\circ \right] \]
+	
+	\begin{equation}
+		\sinh \gamma = 0.171 \angle 84.71^\circ
+	\end{equation}
+	
+
+	\item \textbf{The surge impedance of the line (\(Z_0\)) is given as, }
+	
+	\begin{equation}
+		Z_0 = \sqrt{\frac{Z}{Y}}
+	\end{equation}
+	
+	Substituting the given values:
+	
+	
+	\[Z_0 = \sqrt{\frac{12.5 + j66}{j4.4 \times 10^{-4}}} \]
+	
+	
+	\[Z_0 = \sqrt{152666.55 \angle -10.724^\circ} \]
+	
+	\begin{equation}
+		Z_0 = 390.725 \angle -5.362^\circ \, \Omega
+	\end{equation}
+	
+	\text{so that}
+	
+	\begin{equation}
+		B = Z_0 \sinh \gamma
+	\end{equation}
+	
+	\[ B = 390.725 \angle -5.362^\circ \times 0.171 \angle 84.71^\circ \]
+	
+	\begin{equation}
+		B = 66.814 \angle 79.348^\circ
+	\end{equation}
+	
+	\begin{equation}
+		C = \frac{\sinh \gamma}{Z_0} = \frac{0.171 \angle 84.71^\circ}{390.725 \angle -5.36^\circ}
+	\end{equation}
+	
+	\begin{equation}
+		C = 4.376 \times 10^{-4} \angle 90.072^\circ
+	\end{equation}
+	
+	
+	
+	
+	
+	\item \textbf{Sending end voltage is given as,}
+	
+	\begin{equation}
+		V_s = A V_R + B I_R
+	\end{equation}
+	
+	\[
+	V_s = (0.9855 \angle 0.1582^\circ) \times \left( \frac{275 \times 10^3}{\sqrt{3}} \right)
+	\]
+	
+	\[
+	+ (66.814 \angle 79.348^\circ) \times (583.18 \angle -25.842^\circ)
+	\]
+	
+	\begin{equation}
+		V_s = 182427.57 \angle 0.025^\circ V
+	\end{equation}
+	
+	
+	\item \textbf{Sending end current is given as, }
+	
+	\begin{equation}
+		I_s = C V_R + D I_R
+	\end{equation}
+	
+	
+	\[  I_s = \left( 4.376 \times 10^{-4} \angle 90.072^\circ \right) \left( \frac{275 \times 10^3}{\sqrt{3}} \angle 0^\circ \right)   \]
+	
+	
+	\[+ \left( 0.9855 \angle 0.1582^\circ \right) (583.18 \angle -25.842^\circ) \]	
+	
+	\[ I_s = 69.478 \angle 90.072^\circ + 574.72 \angle -25.68^\circ \]
+	\begin{equation}
+		I_s = 548.12 \angle -19.12^\circ \text{ A} \quad 
+	\end{equation}
+	
+	\item \textbf{The line charging current is given by:} 
+	
+	\begin{equation}
+		I_c = j\omega C V_R
+	\end{equation}
+	
+	From the ABCD calculations:
+	
+
+	\[C = 4.376 \times 10^{-4} \angle 90.072^\circ \]
+	
+	
+	\[I_c = \left( 4.376 \times 10^{-4} \angle 90.072^\circ \right) \times \left( \frac{275 \times 10^3}{\sqrt{3}} \right) \]
+	
+	\begin{equation}
+		I_c = 69.478 \angle 90.072^\circ \, A
+	\end{equation}
+	
+	
+	\textbf{Sending end power factor,}
+	
+	\begin{equation}
+		\phi_s = 0.025^\circ - (-19.12^\circ) = 19.145^\circ
+	\end{equation}
+	
+	\begin{equation}
+		\cos\phi_s = \cos 19.145^\circ = 0.9448
+	\end{equation}
+	
+	
+	
+	\item \textbf{Calculating the transmission efficiency of the  line,}
+	
+	\begin{equation}
+		\eta = \frac{\text{Output}}{\text{Input}} = \frac{3 V_R I_R \cos \phi_R}{3 V_S I_S \cos \phi_S}
+	\end{equation}
+	
+	
+	\[ \eta = \frac{250 \times 10^6}{3 \times 182427.57 \times 548.12 \times 0.8733}  \]
+	
+	\begin{equation}
+		\eta = 95.43\%
+	\end{equation}
+	
+	
+	
+	\item \textbf{Finally the Voltage  regulation of transmission line,}
+	
+	\begin{equation}
+		\text{Regulation} = \frac{\left| \frac{V_S}{A} \right| - |V_R|}{|V_R|}
+	\end{equation}
+	
+	
+	\[ = \frac{\frac{182427.57}{0.9855} - \frac{275 \times 10^3}{\sqrt{3}}}{\frac{275 \times 10^3}{\sqrt{3}}}  \]
+	
+	\begin{equation}
+		= 0.1659 = 16.59\%
+	\end{equation}
+	
+    \end{enumerate}
+
+	
+	
+	\noindent
+	2. (15 pts.) Consider the following system:
+	\[
+	\text{[Diagram not shown]}
+	\]
+	
+	Here, the system \( F \) is defined by the input-output relationship
+	\[
+	F\{z[n]\} = z[n] - z[n-1],
+	\]
+	and \( \Delta \) is the unit delay
+	\[
+	\Delta\{w[n]\} = w[n-1].
+	\]
+	Write down the linear difference equation describing this system.
+	
+	\textbf{Solution.} Let \( z[n] \) be the output of the summer, as shown above. Then
+	\[
+	y[n] = F\{z[n]\} = z[n] - z[n-1].
+	\]
+	
+	Now,
+	\[
+	z[n] = 2x[n] - \Delta\{y[n]\} = 2x[n] - y[n-1].
+	\]
+	Therefore, substituting the expression for \( z[n] \) into the first equation, we can write
+	\[
+	\begin{aligned}
+		y[n] &= z[n] - z[n-1] \\
+		&= \underbrace{2x[n] - y[n-1]}_{=z[n]} - \underbrace{2x[n-1] - y[n-2]}_{=z[n-1]} \\
+		&= 2x[n] - y[n-1] - 2x[n-1] + y[n-2].
+	\end{aligned}
+	\]
+	
+	\[
+	\fbox{y[n] + y[n-1] - y[n-2] = 2x[n] - 2x[n-1]}
+	\]
+	
+	
+	
+	
+	
+
+\end{document}

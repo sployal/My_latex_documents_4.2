@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{newtxtext,newtxmath} % Times New Roman font for text and math
+\usepackage[a4paper, margin=1in]{geometry} % Adjust margins to resemble Word
+\usepackage{caption} % For adding a caption without the figure environment
+\usepackage{ragged2e} % For text justification
+\usepackage{booktabs}
+
+\begin{document}
+	
+	\section*{DC Series Motor Problem Solution}
+	
+	\textbf{Given:}
+	\begin{itemize}
+		\item Rated voltage, $V_1 = 230 \text{ V}$
+		\item Rated speed, $N_1 = 750 \text{ rpm}$
+		\item Rated current, $I_1 = 25 \text{ A}$
+		\item Combined resistance, $R = 1 \text{ }\Omega$
+		\item New speed, $N_2 = 400 \text{ rpm}$
+		\item Torque is proportional to speed squared, $T \propto N^2$
+	\end{itemize}
+	
+	\textbf{Step 1:} Determine the relationship between current and speed
+	\begin{align*}
+		T &\propto N^2 \quad \text{and} \quad T \propto I^2 \\
+		\therefore N &\propto I
+	\end{align*}
+	
+	\textbf{Step 2:} Calculate the new current, $I_2$, at 400 rpm
+	\begin{align*}
+		\frac{N_1}{I_1} &= \frac{N_2}{I_2} \\
+		\frac{750}{25} &= \frac{400}{I_2} \\
+		I_2 &= \frac{400 \times 25}{750} = 13.33 \text{ A}
+	\end{align*}
+	
+	\textbf{Step 3:} Calculate the back EMF, $E_{b1}$, at rated conditions
+	\begin{equation*}
+		E_{b1} = V_1 - I_1 R = 230 - (25 \times 1) = 205 \text{ V}
+	\end{equation*}
+	
+	\textbf{Step 4:} Calculate the new back EMF, $E_{b2}$, at 400 rpm
+	\begin{align*}
+		\frac{E_{b1}}{N_1} &= \frac{E_{b2}}{N_2} \\
+		\frac{205}{750} &= \frac{E_{b2}}{400} \\
+		E_{b2} &= \frac{205 \times 400}{750} = 109.33 \text{ V}
+	\end{align*}
+	
+	\textbf{Step 5:} Calculate the new terminal voltage, $V_2$, at 400 rpm
+	\begin{align*}
+		V_2 &= I_2 R + E_{b2} \\
+		V_2 &= (13.33 \times 1) + 109.33 = 122.66 \text{ V}
+	\end{align*}
+	
+	\textbf{Therefore, at 400 rpm:}
+	\begin{itemize}
+		\item The motor current is 13.33 A
+		\item The terminal voltage is 122.66 V
+	\end{itemize}
+	
+\end{document}

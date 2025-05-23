@@ -1,0 +1,258 @@
+
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{newtxtext,newtxmath} % Times New Roman font for text and math
+\usepackage[a4paper, margin=1in]{geometry} % Adjust margins to resemble Word
+\usepackage{caption} % For adding a caption without the figure environment
+\usepackage{ragged2e} % For text justification
+\usepackage{booktabs}
+\usepackage{multicol}
+
+
+\title{CAT 1: Transient Analysis of RL, RC, and RLC Circuits} % Correct the title
+\author{David Muigai} % Ensure the author name is correct
+
+
+
+
+\begin{document}
+
+\maketitle
+
+
+Determine the dimensions of the core, the number of turns, the cross-section area of conductors in primary and secondary windings of a 100 kVA, 2200/480 V, 1-phase, core type transformer, to operate at a frequency of 50Hz, by assuming the following data. Approximate Volt per turn = 7.5 Volt. Maximum flux density = 1.2 Wb/m\textsuperscript{2}. Ratio of effective cross-sectional area of core to square of diameter of circumscribing circle is 0.6. Ratio of height to width of window is 2. Window space factor = 0.28. Current density = 2.5 A/mm\textsuperscript{2}.
+
+\subsection*{Given Data}
+\begin{itemize}
+	\item 100 kVA, 50 Hz
+	\item 2200/480 V
+	\item $E_t = 7.5$ V
+	\item $K_w = 0.28$
+	\item $A_e/d^2 = 0.6$
+	\item $B_m = 1.2$ Wb/m\textsuperscript{2}
+	\item $H/W = 2$
+	\item Single-phase
+	\item Current density, $\delta = 2.5$ A/mm\textsuperscript{2}
+\end{itemize}
+
+
+\section*{Step 1: Calculate the number of turns in primary and secondary windings}
+
+\subsection*{Number of primary turns ($N_1$)}
+\[
+N_1 = \frac{V_1}{E_t} = \frac{2200}{7.5} = 293.33 \approx 294 \text{ turns}
+\]
+
+\subsection*{Number of secondary turns ($N_2$)}
+\[
+N_2 = \frac{V_2}{E_t} = \frac{480}{7.5} = 64 \text{ turns}
+\]
+
+\section*{Step 2: Calculate the maximum value of flux ($\Phi_m$)}
+From the equation: 
+\[
+E_t = 4.44 \times f \times \Phi_m
+\]
+\[
+\Phi_m = \frac{E_t}{4.44 \times f} = \frac{7.5}{4.44 \times 50} = 0.0338 \text{ Wb}
+\]
+
+\section*{Step 3: Calculate the cross-sectional area of the core ($A_e$)}
+Since 
+\[
+\Phi_m = B_m \times A_e
+\]
+\[
+A_e = \frac{\Phi_m}{B_m} = \frac{0.0338}{1.2} = 0.0282 \text{ m}^2
+\]
+
+\section*{Step 4: Calculate the diameter of the circumscribing circle ($d$)}
+Given that 
+\[
+\frac{A_e}{d^2} = 0.6
+\]
+\[
+d^2 = \frac{A_e}{0.6} = \frac{0.0282}{0.6} = 0.047 \text{ m}^2
+\]
+\[
+d = \sqrt{0.047} = 0.2168 \text{ m} = 216.8 \text{ mm}
+\]
+
+\section*{Step 5: Calculate the primary and secondary currents}
+\subsection*{Primary current ($I_1$)}
+\[
+I_1 = \frac{\text{kVA} \times 1000}{V_1} = \frac{100 \times 1000}{2200} = 45.45 \text{ A}
+\]
+
+\subsection*{Secondary current ($I_2$)}
+\[
+I_2 = \frac{\text{kVA} \times 1000}{V_2} = \frac{100 \times 1000}{480} = 208.33 \text{ A}
+\]
+
+\section*{Step 6: Calculate the cross-sectional area of primary and secondary conductors}
+\subsection*{Primary conductor area ($a_1$)}
+\[
+a_1 = \frac{I_1}{\delta} = \frac{45.45}{2.5} = 18.18 \text{ mm}^2
+\]
+
+\subsection*{Secondary conductor area ($a_2$)}
+\[
+a_2 = \frac{I_2}{\delta} = \frac{208.33}{2.5} = 83.33 \text{ mm}^2
+\]
+
+\section*{Step 7: Calculate the window dimensions}
+\subsection*{Total copper area in the window ($A_{cu}$)}
+\[
+A_{cu} = (N_1 \times a_1 + N_2 \times a_2)
+\]
+\[
+A_{cu} = (294 \times 18.18 + 64 \times 83.33) = 5344.9 + 5333.1 = 10678 \text{ mm}^2
+\]
+
+\subsection*{Window area ($A_w$)}
+\[
+A_w = \frac{A_{cu}}{K} = \frac{10678}{0.28} = 38135.7 \text{ mm}^2 = 0.0381 \text{ m}^2
+\]
+
+\subsection*{Window dimensions}
+Given $H/W = 2$, where $H$ is the height and $W$ is the width of the window:
+\[
+A_w = H \times W = 2W \times W = 2W^2
+\]
+\[
+2W^2 = 0.0381
+\]
+\[
+W^2 = 0.01905
+\]
+\[
+W = 0.138 \text{ m} = 138 \text{ mm}
+\]
+
+\subsection*{Height of window ($H$)}
+\[
+H = 2W = 2 \times 138 = 276 \text{ mm}
+\]
+
+\section*{Summary of Results}
+
+\subsection*{Core dimensions}
+\begin{itemize}
+	\item Cross-sectional area ($A_e$) = 0.0282 m\textsuperscript{2}
+	\item Diameter of circumscribing circle ($d$) = 216.8 mm
+\end{itemize}
+
+\subsection*{Number of turns}
+\begin{itemize}
+	\item Primary winding ($N_1$) = 294 turns
+	\item Secondary winding ($N_2$) = 64 turns
+\end{itemize}
+
+\subsection*{Cross-sectional area of conductors}
+\begin{itemize}
+	\item Primary winding ($a_1$) = 18.18 mm\textsuperscript{2}
+	\item Secondary winding ($a_2$) = 83.33 mm\textsuperscript{2}
+\end{itemize}
+
+\subsection*{Window dimensions}
+\begin{itemize}
+	\item Width ($W$) = 138 mm
+	\item Height ($H$) = 276 mm
+\end{itemize}
+
+
+
+\section*{Example 2} 
+Calculate the dimension of the core, the number of turns, and the cross-sectional area of conductors in the primary and secondary windings of a 100 kVA, 2300/400V, 50Hz, 1-phase, shell-type transformer. The given data is as follows:
+
+\subsection*{Given Data}
+\begin{itemize}
+	\item Apparent power: $100$ kVA
+	\item Voltage: $2300/400$ V
+	\item Frequency: $50$ Hz
+	\item Transformer type: Single-phase, shell-type
+	\item Ratio of magnetic and electric loading: $480 \times 10^{-8}$
+	\item Maximum flux density: $B_m = 1.1$ Wb/m$^2$
+	\item Current density: $\delta = 2.2$ A/mm$^2$
+	\item Window space factor: $K_w = 0.3$
+	\item Stacking factor: $S_f = 0.9$
+	\item Depth of core / Width of central limb = $2.6$
+	\item Height of window / Width of window = $2.5$
+\end{itemize}
+
+
+
+\section*{Step 1: Core Area Calculation}
+The core area $A_c$ is calculated using the formula:
+
+\begin{equation}
+	A_c = \frac{S}{4.44 \times f \times B_m \times N}
+\end{equation}
+
+Given:
+
+\begin{align*}
+	S &= 100,000 \text{ VA} \\
+	f &= 50 \text{ Hz} \\
+	B_m &= 1.1 \text{ Wb/m}^2 \\
+	N &= 480 \times 10^3
+\end{align*}
+
+\begin{equation}
+	A_c = \frac{100,000}{4.44 \times 50 \times 1.1 \times 480,000} = \frac{100,000}{117,216,000} \approx 0.0423 \text{ m}^2
+\end{equation}
+
+\section*{Step 2: Core Cross-Section Dimensions}
+Using the stacking factor (0.9):
+
+\begin{align*}
+	\text{Core Width} &= \frac{A_c}{d} = \frac{0.0423}{2.6} \approx 0.1533 \text{ m} \\
+	\text{Core Depth} &= d = 0.39859 \text{ m}
+\end{align*}
+
+\section*{Step 3: Window Area Calculation}
+
+\begin{equation}
+	A_w = H_w \times W_w = 2.5 \times 0.1083 = 0.2708 \text{ m}^2
+\end{equation}
+
+\section*{Step 4: Number of Turns (Primary and Secondary)}
+
+\begin{equation}
+	T_p = \frac{V_1}{4.44 \times f \times B_m \times A_c} = \frac{2300}{4.44 \times 50 \times 1.1 \times 0.0423} = \frac{2300}{103.1583} \approx 223 \text{ turns}
+\end{equation}
+
+Similarly, for the secondary:
+
+\begin{equation}
+	T_s = \frac{400}{4.44 \times 50 \times 1.1 \times 0.0423} = \frac{400}{103.1583} \approx 39 \text{ turns}
+\end{equation}
+
+\section*{Step 5: Cross-sectional Area of Conductors}
+Using current density:
+
+\begin{equation}
+	A_g = \frac{I}{k}
+\end{equation}
+
+For primary current:
+
+\begin{align*}
+	I_p &= \frac{100,000}{2300} \approx 43.48 \text{ A} \\
+	A_g &= \frac{43.48}{2.2} \approx 19.76 \text{ mm}^2
+\end{align*}
+
+For secondary current:
+
+\begin{align*}
+	I_s &= \frac{100,000}{400} = 250 \text{ A} \\
+	A_s &= \frac{250}{2.2} \approx 113.64 \text{ mm}^2
+\end{align*}
+
+
+
+
+
+
+\end{document}

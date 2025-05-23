@@ -1,0 +1,311 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{newtxtext,newtxmath} % Times New Roman font for text and math
+\usepackage[a4paper, margin=1in]{geometry} % Adjust margins to resemble Word
+\usepackage{caption} % For adding a caption without the figure environment
+\usepackage{ragged2e} % For text justification
+\usepackage{booktabs}
+
+\begin{document}
+	
+	
+	
+	
+	
+  
+  \subsection*{Given Data:}
+  \[
+  \begin{aligned}
+  	&\text{Reservoir Area, } A = 2.4 \, \text{km}^2 = 2.4 \times 10^6 \, \text{m}^2, \\
+  	&\text{Reservoir Capacity, } V = 5 \times 10^6 \, \text{m}^3, \\
+  	&\text{Effective Head, } H = 100 \, \text{m}, \\
+  	&\text{Efficiencies:} \, \eta_p = 0.95, \, \eta_t = 0.90, \, \eta_g = 0.85, \\
+  	&\text{Total Efficiency, } \eta = \eta_p \cdot \eta_t \cdot \eta_g = 0.95 \cdot 0.90 \cdot 0.85 = 0.72675, \\
+  	&\text{Gravitational Acceleration, } g = 9.81 \, \text{m/s}^2, \\
+  	&\text{Load Supplied: } P = 15000 \, \text{kW} = 1.5 \times 10^7 \, \text{W}, \\
+  	&\text{Time Supplied: } t = 3 \, \text{hours} = 3 \cdot 3600 = 10800 \, \text{s}.
+  \end{aligned}
+  \]
+  
+  \subsection*{Part i: Total Electrical Energy Generated}
+  The total energy is calculated as:  
+  \[
+  E = \eta \cdot \rho \cdot g \cdot H \cdot V,
+  \]
+  where \( \rho = 1000 \, \text{kg/m}^3 \).
+  
+  Substitute the values:  
+  \[
+  E = 0.72675 \cdot 1000 \cdot 9.81 \cdot 100 \cdot (5 \times 10^6).
+  \]
+  
+  \[
+  E = 3.56 \times 10^{12} \, \text{J}.
+  \]
+  
+  Convert joules to kilowatt-hours:  
+  \[
+  E_{\text{kWh}} = \frac{E}{3.6 \times 10^6} = \frac{3.56 \times 10^{12}}{3.6 \times 10^6} = 988,541.67 \, \text{kWh}.
+  \]
+  
+  \textbf{Answer:} The total electrical energy generated is:
+  \[
+  E = 988,541.67 \, \text{kWh}.
+  \]
+  
+  \subsection*{Part ii: Fall in Reservoir Level}
+  The energy consumed is:
+  \[
+  E_{\text{consumed}} = P \cdot t = 1.5 \times 10^7 \cdot 10800 = 1.62 \times 10^{11} \, \text{J}.
+  \]
+  
+  The volume of water used is:
+  \[
+  V_{\text{used}} = \frac{E_{\text{consumed}}}{\eta \cdot \rho \cdot g \cdot H}.
+  \]
+  
+  Substitute values:
+  \[
+  V_{\text{used}} = \frac{1.62 \times 10^{11}}{0.72675 \cdot 1000 \cdot 9.81 \cdot 100}.
+  \]
+  
+  \[
+  V_{\text{used}} = 2.28 \times 10^4 \, \text{m}^3.
+  \]
+  
+  The fall in reservoir level is:
+  \[
+  \text{Fall in Level} = \frac{V_{\text{used}}}{A} = \frac{2.28 \times 10^4}{2.4 \times 10^6}.
+  \]
+  
+  \[
+  \text{Fall in Level} = 0.0095 \, \text{m} = 9.5 \, \text{mm}.
+  \]
+  
+  \textbf{Answer:} The fall in reservoir level is:
+  \[
+  \text{Fall in Level} = 9.5 \, \text{mm}.\]
+	
+	
+	
+	\section*{Hydroelectric Plant Discharge and Capacity Estimation}
+	
+	The weekly discharge of a typical hydroelectric plant is as follows:
+	
+	\[
+	\begin{array}{|c|c|c|c|c|c|c|c|}
+		\hline
+		\text{Day} & \text{Sun} & \text{Mon} & \text{Tue} & \text{Wed} & \text{Thu} & \text{Fri} & \text{Sat} \\
+		\hline
+		\text{Discharge (m}^3/\text{s}\text{)} & 500 & 520 & 850 & 800 & 875 & 900 & 546 \\
+		\hline
+	\end{array}
+	\]
+	
+	The plant has an effective head of \( 15 \, \text{m} \) and an overall efficiency of \( 85\% \). The plant operates at a \( 40\% \) load factor.
+	
+	\subsection*{i. Average Daily Discharge}
+	
+	The average daily discharge is calculated as:
+	
+	\[
+	\text{Average daily discharge} = \frac{\text{Sum of daily discharges}}{\text{Number of days}}
+	\]
+	
+	\[
+	\text{Average daily discharge} = \frac{500 + 520 + 850 + 800 + 875 + 900 + 546}{7} = \frac{4491}{7} = 641.57 \, \text{m}^3/\text{s}
+	\]
+	
+	\subsection*{ii. Pondage Required}
+	
+	Pondage refers to the storage required to regulate the flow variations across days. First, calculate the deviations from the average daily discharge:
+	
+	\[
+	\text{Deviation for each day} = \text{Discharge for that day} - \text{Average discharge}
+	\]
+	
+	For positive deviations:
+	
+	\[
+	\text{Pondage required (m}^3\text{)} = \text{Sum of positive deviations} \times \text{Seconds per day}
+	\]
+	
+	For each day:
+	
+	\[
+	\text{Sun:} \quad 500 - 641.57 = -141.57 \quad (\text{negative, ignored})
+	\]
+	\[
+	\text{Mon:} \quad 520 - 641.57 = -121.57 \quad (\text{negative, ignored})
+	\]
+	\[
+	\text{Tue:} \quad 850 - 641.57 = 208.43 \quad (\text{positive deviation})
+	\]
+	\[
+	\text{Wed:} \quad 800 - 641.57 = 158.43 \quad (\text{positive deviation})
+	\]
+	\[
+	\text{Thu:} \quad 875 - 641.57 = 233.43 \quad (\text{positive deviation})
+	\]
+	\[
+	\text{Fri:} \quad 900 - 641.57 = 258.43 \quad (\text{positive deviation})
+	\]
+	\[
+	\text{Sat:} \quad 546 - 641.57 = -95.57 \quad (\text{negative, ignored})
+	\]
+	
+	Total positive deviation:
+	
+	\[
+	208.43 + 158.43 + 233.43 + 258.43 = 858.72 \, \text{m}^3/\text{s}
+	\]
+	
+	Pondage required:
+	
+	\[
+	\text{Pondage required} = 858.72 \times 86400 = 74,177,612.8 \, \text{m}^3
+	\]
+	
+	\subsection*{iii. Installed Capacity of Proposed Plant}
+	
+	The installed capacity is calculated using the formula for power:
+	
+	\[
+	\text{Power (W)} = \rho \cdot g \cdot Q \cdot H \cdot \eta
+	\]
+	
+	Where:
+	\[
+	\rho = 1000 \, \text{kg/m}^3 \quad (\text{density of water}), \quad g = 9.81 \, \text{m/s}^2 \quad (\text{gravity}),
+	\]
+	\[
+	Q = 900 \, \text{m}^3/\text{s} \quad (\text{maximum discharge}), \quad H = 15 \, \text{m}, \quad \eta = 0.85
+	\]
+	
+	Substituting the values:
+	
+	\[
+	\text{Power (W)} = 1000 \cdot 9.81 \cdot 900 \cdot 15 \cdot 0.85 = 112,569,750 \, \text{W}
+	\]
+	
+	Converting to MW:
+	
+	\[
+	\text{Power (MW)} = \frac{112,569,750}{10^6} = 112.57 \, \text{MW}
+	\]
+	
+	Considering the load factor:
+	
+	\[
+	\text{Installed Capacity (MW)} = \frac{\text{Power}}{\text{Load factor}} = \frac{112.57}{0.40} = 281.43 \, \text{MW}
+	\]
+	
+	
+	
+	\section*{i. Average Daily Discharge}
+	
+	The average daily discharge is calculated as:
+	
+	\[
+	\text{Average daily discharge} = \frac{\text{Sum of daily discharges}}{\text{Number of days}}
+	\]
+	
+	Substituting the values:
+	
+	\[
+	\text{Average daily discharge} = \frac{500 + 520 + 850 + 800 + 875 + 900 + 546}{7} = 713 \, \text{m}^3/\text{s}
+	\]
+	
+	\section*{ii. Pondage Required}
+	
+	Pondage refers to the storage required to regulate the flow variations across days. First, calculate the deviations from the average daily discharge:
+	
+	\[
+	\text{Deviation for each day} = \text{Discharge for that day} - \text{Average discharge}
+	\]
+	
+	For positive deviations:
+	
+	\[
+	\text{Pondage required (m}^3\text{)} = \text{Sum of positive deviations} \times \text{Seconds per day}
+	\]
+	
+	For each day:
+	
+	\[
+	\text{Sun:} \quad 500 - 713 = -213 \quad (\text{negative, ignored})
+	\]
+	
+	\[
+	\text{Mon:} \quad 520 - 713 = -193 \quad (\text{negative, ignored})
+	\]
+	
+	\[
+	\text{Tue:} \quad 850 - 713 = 137 \quad (\text{positive deviation})
+	\]
+	
+	\[
+	\text{Wed:} \quad 800 - 713 = 87 \quad (\text{positive deviation})
+	\]
+	
+	\[
+	\text{Thu:} \quad 875 - 713 = 162 \quad (\text{positive deviation})
+	\]
+	
+	\[
+	\text{Fri:} \quad 900 - 713 = 187 \quad (\text{positive deviation})
+	\]
+	
+	\[
+	\text{Sat:} \quad 546 - 713 = -167 \quad (\text{negative, ignored})
+	\]
+	
+	Total positive deviation:
+	
+	\[
+	137 + 87 + 162 + 187 = 573 \, \text{m}^3/\text{s}
+	\]
+	
+	Pondage required:
+	
+	\[
+	\text{Pondage required} = 573 \times 86400 = 49,507,200 \, \text{m}^3
+	\]
+	
+	\section*{iii. Installed Capacity}
+	
+	The installed capacity is calculated using the formula for power:
+	
+	\[
+	\text{Power (W)} = \rho \cdot g \cdot Q \cdot H \cdot \eta
+	\]
+	
+	Where:
+	
+	\[
+	\rho = 1000 \, \text{kg/m}^3 \quad (\text{density of water}), \quad g = 9.81 \, \text{m/s}^2 \quad (\text{gravity}),
+	\]
+	
+	\[
+	Q = 900 \, \text{m}^3/\text{s} \quad (\text{maximum discharge}), \quad H = 15 \, \text{m}, \quad \eta = 0.85
+	\]
+	
+	Substituting the values:
+	
+	\[
+	\text{Power (W)} = 1000 \cdot 9.81 \cdot 900 \cdot 15 \cdot 0.85 = 112,569,750 \, \text{W}
+	\]
+	
+	Converting to MW:
+	
+	\[
+	\text{Power (MW)} = \frac{112,569,750}{10^6} = 112.57 \, \text{MW}
+	\]
+	
+	Considering the load factor:
+	
+	\[
+	\text{Installed Capacity (MW)} = \frac{\text{Power}}{\text{Load factor}} = \frac{112.57}{0.40} = 281.43 \, \text{MW}
+	\]
+\end{document}
